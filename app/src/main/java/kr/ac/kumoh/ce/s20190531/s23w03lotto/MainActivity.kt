@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kr.ac.kumoh.ce.s20190531.s23w03lotto.databinding.ActivityMainBinding
 
@@ -21,29 +22,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(main.root)
 
         txtNum = arrayOf(main.num1, main.num2, main.num3, main.num4, main.num5, main.num6)
-//        txtNum[0] = main.num1
-//        txtNum[1] = main.num2
-//        txtNum[2] = main.num3
-//        txtNum[3] = main.num4
-//        txtNum[4] = main.num5
-//        txtNum[5] = main.num6
 
         model = ViewModelProvider(this)[LottoViewModel::class.java]
-        txtNum.forEachIndexed { index, textView ->
-            textView?.text = model.numbers[index].toString()
-        }
+        setNumbersText()
+
+        model.numbers.observe(this, Observer {
+            Log.i("Observer!!!", "numbers changed")
+            setNumbersText()
+        })
 
         main.btnGenerate.setOnClickListener {
             model.generate()
-            txtNum.forEachIndexed { index, textView ->
-                textView?.text = model.numbers[index].toString()
-            }
-//            main.num1.text = model.numbers[0].toString()
-//            main.num2.text = model.numbers[1].toString()
-//            main.num3.text = model.numbers[2].toString()
-//            main.num4.text = model.numbers[3].toString()
-//            main.num5.text = model.numbers[4].toString()
-//            main.num6.text = model.numbers[5].toString()
+            //setNumbersText()
+        }
+    }
+
+    private fun setNumbersText() {
+        txtNum.forEachIndexed { index, textView ->
+            textView?.text = model.numbers.value!![index].toString()
         }
     }
 
