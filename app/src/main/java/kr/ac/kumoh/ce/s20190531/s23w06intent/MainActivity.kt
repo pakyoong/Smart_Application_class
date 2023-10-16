@@ -130,7 +130,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 .fillMaxWidth(),
             onClick = {
                 val uri =
-                    Uri.parse("sms:01073167616")
+                    Uri.parse("sms:01089398400")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 intent.putExtra("sms_body", "류현식 하이여")
                 startActivity(context, intent, null)
