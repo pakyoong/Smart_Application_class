@@ -16,7 +16,7 @@
             android:name=".SecondActivity"
             android:exported="false"
             android:label="@string/title_activity_second"
-            android:theme="@style/Theme.S23W06Intent" />
+            android:theme="@style/Theme.S23W06Intent" /> <!-- @ <- 자원을 참조할 때 씀 -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
