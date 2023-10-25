@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         main.btnSimulation.setOnClickListener {
             if (!isProcessing) {
                 isProcessing = true
-                model.runSimulation(10000) // 예를 들어 10,000번의 시뮬레이션을 실행
+                model.runSimulation(15000)
             }
         }
 
@@ -90,10 +90,12 @@ class MainActivity : AppCompatActivity() {
                 "Top"
             )
 
+            val totalSimulations = 15000
             val output = StringBuilder()
             for (hand in handOrder) {
                 val probability = results[hand] ?: continue
-                output.append("$hand: ${"%.2f".format(probability)}%\n")
+                val count = ((probability * totalSimulations) / 100).toInt()
+                output.append("$hand: ${"%.2f".format(probability)}% ($count times)\n")
             }
 
             main.tvHandRanking.text = output.toString()
@@ -102,7 +104,7 @@ class MainActivity : AppCompatActivity() {
             main.tvHandRanking.postDelayed({
                 main.tvHandRanking.visibility = View.INVISIBLE
                 isProcessing = false
-            }, 20000)
+            }, 5000)
         })
     }
 
