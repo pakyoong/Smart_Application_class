@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -87,7 +88,7 @@ fun Clicker() {
 @Composable
 fun Counter() {
     //var count = 0;
-    val (count, setCount) = remember { mutableStateOf(0) }
+    val (count, setCount) = rememberSaveable { mutableStateOf(0) }
 
     Column(
         verticalArrangement = Arrangement.Center,
