@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#060"
+    tools:context=".MainActivity">
+
+    <!-- Card 1 -->
+    <ImageView
+        android:id="@+id/card1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_shuffle"
+        app:layout_constraintEnd_toStartOf="@id/card2"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card 2 -->
+    <ImageView
+        android:id="@+id/card2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_shuffle"
+        app:layout_constraintEnd_toStartOf="@id/card3"
+        app:layout_constraintStart_toEndOf="@id/card1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card 3 -->
+    <ImageView
+        android:id="@+id/card3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_shuffle"
+        app:layout_constraintEnd_toStartOf="@id/card4"
+        app:layout_constraintStart_toEndOf="@id/card2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card 4 -->
+    <ImageView
+        android:id="@+id/card4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_shuffle"
+        app:layout_constraintEnd_toStartOf="@id/card5"
+        app:layout_constraintStart_toEndOf="@id/card3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card 5 -->
+    <ImageView
+        android:id="@+id/card5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_shuffle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Shuffle Button -->
+    <Button
+        android:id="@+id/btn_shuffle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Good Luck"
+        app:layout_constraintBottom_toBottomOf="@id/btn_simulation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card1" />
+
+    <!-- Simulation Button -->
+    <Button
+        android:id="@+id/btn_simulation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:text="Simulation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_shuffle" />
+
+
+    <TextView
+        android:id="@+id/tvHandRanking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FFF"
+        android:padding="16dp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1.5"
+        android:text="Hand Ranking"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
